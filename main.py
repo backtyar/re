@@ -27,7 +27,9 @@ print(re.findall(my_re, text_1))
 re_email = r'([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)'
 
 
-with open('info.txt', 'r') as read_fp:
+with open('info.txt', 'r') as read_fp, open('new_info.txt', 'w') as write_fp:
     new_text = read_fp.read()
     result = re.findall(re_email, new_text)
+    for email in result:
+        write_fp.write(email + '\n')
     print(result)
